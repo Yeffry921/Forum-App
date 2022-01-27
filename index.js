@@ -6,12 +6,13 @@ const addQuestionBtn = document.querySelector('.add__question')
 const submitQuestion = document.querySelector('.submit__question')
 const popup = document.querySelector('.popup')
 
+// App functions
 
-const data = [{
-  title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quam asperiores culpa quisquam magni atque facilis ullam dicta dignissimos pariatur.',
-  description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quam asperiores culpa quisquam magni atque facilis ullam dicta dignissimos pariatur. gdfgdgfdfgdfgdfgdfgdfgdfgdf',
-  id: 1,
-}]
+// Create questions
+// Read them - when you click them they show up in a thread
+// Update them - be able to edit them
+// Delete them - self explanatory
+const data = []
 
 const uniqueID = () => {
   return Math.floor(Math.random() * Date.now())
@@ -40,6 +41,16 @@ const appendQuestion = (e) => {
 
   popup.classList.remove('pop__show')
 }
+const getQuestion = (e) => {
+  if(!e.target.classList.contains('question__title')) {
+    return;
+  }
+  const questionID = Number(e.target.dataset.id)
+  
+  const questionQuery = data.find((question) => question.id === questionID)
+  
+  return questionQuery
+}
 
 const renderQuestions = (data) => {
 
@@ -49,7 +60,8 @@ const renderQuestions = (data) => {
     const para = document.createElement('p')
 
     div.classList.add('question')
-    div.dataset.id = question.id
+    h3.classList.add('question__title')
+    h3.dataset.id = question.id
 
     h3.textContent = question.title
     para.textContent = question.description
