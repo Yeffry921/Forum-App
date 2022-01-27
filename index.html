@@ -14,15 +14,11 @@
   <div class="container">
     <header>
       <h1>Question Forum</h1>
-      <a href="question.html">
-        <button class="btn add__question">Add Question
-
-        </button>
-      </a>
+      <button class="btn add__question">Add Question</button>
     </header>
 <!-- Popup -->
 
-  <div class="popup">
+  <div class="popup pop__hidden">
     <div class="popup__content">
       <form class="question__form">
         <label for="title">Title</label>
@@ -31,14 +27,9 @@
         <label for="description">Description</label>
         <textarea id="description" name="description" placeholder="" style="height:200px"></textarea>
   
-        <a href="index.html">
-            Submit
-          </button>
-        </a>
+        <button type="submit" class="submit__question">Submit</button>
       </form>
     </div>
-    
-    <script src="index.js"></script>
   </div> 
 
 <!-- Content section -->
@@ -51,6 +42,6 @@
       </section>
     </main>
   </div>
-  <script src="./index.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
